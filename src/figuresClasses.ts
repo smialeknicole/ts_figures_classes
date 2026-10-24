@@ -19,19 +19,21 @@ export class Triangle implements Figure {
 
   shape: Shape = 'triangle';
 
-  constructor(color: Color, a: number, b: number, c: number) {
+  constructor(
+    public color: Color,
+    public a: number,
+    public b: number,
+    public c: number,
+  ) {
     if (a <= 0 || b <= 0 || c <= 0) {
       throw new Error('Triangle side must be greater than 0');
     }
 
     if (a >= b + c || b >= a + c || c >= a + b) {
-      throw new Error('Invalid triangle: longest side must be less than sum of other sides');
+      throw new Error(
+        'Invalid triangle: longest side must be less than sum of other sides',
+      );
     }
-
-    this.color = color;
-    this.a = a;
-    this.b = b;
-    this.c = c;
   }
 
   getArea(): number {
@@ -49,13 +51,13 @@ export class Circle implements Figure {
 
   shape: Shape = 'circle';
 
-  constructor(color: Color, radius: number) {
+  constructor(
+    public color: Color,
+    public radius: number,
+  ) {
     if (radius <= 0) {
       throw new Error('Circle radius must be greater than 0');
     }
-
-    this.color = color;
-    this.radius = radius;
   }
 
   getArea(): number {
@@ -74,14 +76,14 @@ export class Rectangle implements Figure {
 
   shape: Shape = 'rectangle';
 
-  constructor(color: Color, width: number, height: number) {
+  constructor(
+    public color: Color,
+    public width: number,
+    public height: number,
+  ) {
     if (width <= 0 || height <= 0) {
       throw new Error('Rectangle width/height must be greater than 0');
     }
-
-    this.color = color;
-    this.width = width;
-    this.height = height;
   }
 
   getArea(): number {
