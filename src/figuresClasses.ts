@@ -21,11 +21,11 @@ export class Triangle implements Figure {
 
   constructor(color: Color, a: number, b: number, c: number) {
     if (a <= 0 || b <= 0 || c <= 0) {
-      throw new Error('your error message');
+      throw new Error('Triangle side must be greater than 0');
     }
 
     if (a >= b + c || b >= a + c || c >= a + b) {
-      throw new Error('your error message');
+      throw new Error('Invalid triangle: longest side must be less than sum of other sides');
     }
 
     this.color = color;
@@ -51,7 +51,7 @@ export class Circle implements Figure {
 
   constructor(color: Color, radius: number) {
     if (radius <= 0) {
-      throw new Error('your error message');
+      throw new Error('Circle radius must be greater than 0');
     }
 
     this.color = color;
@@ -76,7 +76,7 @@ export class Rectangle implements Figure {
 
   constructor(color: Color, width: number, height: number) {
     if (width <= 0 || height <= 0) {
-      throw new Error('your error message');
+      throw new Error('Rectangle width/height must be greater than 0');
     }
 
     this.color = color;
